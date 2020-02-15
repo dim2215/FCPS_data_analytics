@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+    $(function(){
+      $("#includedContent").load("finalScoreBokeh.html");
+    });
+    </script>
+  </head>
+
+  <body style="margin-left: 15%; width: 700px">
+
+    <div id="includedContent"></div>
+    <h1>School District Rating for the Commonwealth of Massachusetts</h1>
+    <p>Author: Daniel McGuire</p>
+    <p>Date: 2nd February  2020</p>
+    <br />
+    <h2>Introduction</h2>
+
+    <p>As a by-product of the digital revolution, data is collected
+    at an exponential rate. And the Commonwealth of Massachusetts is no exception.
+    Currently, the Commonwealth collects over 300 columns of data about schools
+    and school districts that range from addresses to enrollment by grade
+    to how many attempts for AP tests are taken. <br /><br /> And with this data comes the
+    </p>
+    question, "Can data be leveraged to improve school regions?"<br />
+
+    <p>This analysis provides one solution to rating a School District by its schools'
+    performance. With this, administrators can</p>
+    <ol>
+      <li>Strategically redistribute resources as needed.</li>
+      <li>Examine schools in successful Districts in depth to communicate successful tactics.</li>
+      <li>If school administrators believe that certain possible treatment
+      streams can improve Districts.</li>
+    </ol>
+
+    <h2>HeatMap of School District rating</h2>
+    <p>To obtain one score for a District, 6 subscores were calculated and then
+    combined into one value:</p>
+    <p>You may click on the static image below to hover over the Districts.<br />
+      Please note that the plot is very large will take a few moments to render
+    </p>
+    <ul>
+      <li>Whether or not a District has enough of the right schools to educate all grades from 1 to 12.</li>
+      <li>Graduation rates by District.</li>
+      <li>Highschool to college rates.</li>
+      <li>Hischool SAT scores.</li>
+      <li>Accountability and Assistance (aggregated by School).</li>
+      <li>Accountability and Assistance (accrording to the Commonwealth of Massachussets)</li>
+    </ul>
+    <a href="ImageOutputs/bokehPlots/finalScoreDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/finalScoreDistrictStatic.jpg" alt="Image of final scores heatmap, heatmap stored at ImageOutputs/bokehPlots/finalScoreDistrictBokeh.html" style="width:717px;height:400px;border:0;">
+    </a>
+
+    <h2>HeatMaps of District scores by component</h2>
+    <h3>HeatMap of Districts that can serve all grade levels</h3>
+    <a href="ImageOutputs/bokehPlots/gradeScoreDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/gradeScoreDistrictStatic.jpg" alt="Image of grade scores heatmap, heatmap stored at ImageOutputs/bokehPlots/gradeScoreDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+    <h3>HeatMap of graduation rates by District</h3>
+    <a href="ImageOutputs/bokehPlots/graduationScoreDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/graduationScoreDistrictStatic.jpg" alt="Image of graduation scores heatmap, heatmap stored at ImageOutputs/bokehPlots/graduationScoreDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+    <h3>HeatMap of High school to college score by District</h3>
+    <a href="ImageOutputs/bokehPlots/highschoolToCollegeDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/highSchoolToCollegeScoreDistrictStatic.jpg" alt="Image of High School to College scores heatmap, heatmap stored at ImageOutputs/bokehPlots/highschoolToCollegeDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+    <h3>HeatMap of High school SAT scores by District</h3>
+    <a href="ImageOutputs/bokehPlots/SATScoresDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/SATScoreDistrictStatic.jpg" alt="Image of SAT scores heatmap, heatmap stored at ImageOutputs/bokehPlots/SATScoresDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+    <h3>HeatMap of Accountability and Assistance scores by District (aggregated by school)</h3>
+    <a href="ImageOutputs/bokehPlots/accountabilityAndAssistanceScoreAggSchoolDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/AAScoreAggSchoolDistrictStatic.jpg" alt="Image of Accountability and Assistance scores heatmap, heatmap stored at ImageOutputs/bokehPlots/accountabilityAndAssistanceScoreAggSchoolDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+    <h3>HeatMap of Accountability and Assistance scores by District (determined by Commonwealth of Massachussets)</h3>
+    <a href="ImageOutputs/bokehPlots/accountabilityAndAssistanceScoreOfDistrictByDistrictBokeh.html">
+      <img src="ImageOutputs/StaticBokehImages/AAScoreOfDistrictByDistrictStatic.jpg" alt="Image of Accountability and Assistance scores heatmap, heatmap stored at ImageOutputs/bokehPlots/accountabilityAndAssistanceScoreOfDistrictByDistrictBokeh.html" style="width:358px;height:200px;border:0;">
+    </a>
+
+
+    <h2>How the analysis was conducted</h2>
+    <p>A data set of publically available data from the Commonwealth of
+      Massachussets was obtained from Kaggel. From that, several aggregations of
+      the data took place at the school district level to compile 6 sub-scores.<br />
+
+      For each district, the sub-scores were then input as variables of a
+      linear equastion. The coefficients are:
+    </p>
+    <ul>
+      <li>0.50 : Whether or not a District has enough of the right schools to educate all grades from 1 to 12.</li>
+      <li>0.15 : Graduation rates by District.</li>
+      <li>0.10 : Highschool to college rates.</li>
+      <li>0.15 : Hischool SAT scores.</li>
+      <li>0.03 : Accountability and Assistance (aggregated by School).</li>
+      <li>0.07 : Accountability and Assistance (accrording to the Commonwealth of Massachussets)</li>
+    </ul>
+    <p>This function has a range of 0 (worst) to 1 (best).
+    </p>
+    <h2>Future Analysis</h2>
+    <p>While this current view is primarily for administrators and other key
+      decision makers, the general public can benefit from other data the
+      Comonwealth of Massachusetts collects. Examples include demographic data, school
+      population, and standardized test scores (MCAS). Concerned citizens could
+      plan trips or exchange students using the data here to guide them.<br /><br />
+
+      With historical data, administrators could see how regions trend over time.
+      Once identified, the data from a troubled region can be analyzed to find what
+      caused this reduction. From there, administrators could decide if a
+      certain kind of intervention like auditing their procedures, checking
+      more closely that problems identified in a previous inspection have
+      been addressed, or even simply contacting the necessary people to accertain
+      why the appearant problem even exist and if mitigating circumstances
+      exist. Once a problem has been identified, administrators can take action
+      to assist whatever entity - be it school, school district, or school
+      system - to improve their performance. <br /><br />
+
+      Sentiment analysis of social media feed could provide another insite into
+      school health. However, other than verifying the accuracy of that model
+      it may not be advised as public opinion does change. Also, those who post
+      may not reflect the true sentiment of the population.
+    </p>
+  </body>
+</html>
